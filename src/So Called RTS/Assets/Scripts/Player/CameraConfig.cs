@@ -1,21 +1,19 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-namespace Assets.Scripts.Player
+namespace Scripts
 {
-    public class CameraConfig : MonoBehaviour
+    [System.Serializable]
+    public class CameraConfig
     {
+        [field: SerializeField] public bool EnableEdgePan { get; private set; } = true;
+        [field: SerializeField] public float MousePanSpeed { get; private set; } = 5f;
+        [field: SerializeField] public float EdgePanSize { get; private set; } = 50f;
 
-        // Use this for initialization
-        void Start()
-        {
+        [field: SerializeField] public float KeyboardPanSpeed { get; private set; } = 5f;
 
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-
-        }
+        [field: SerializeField] public float ZoomSpeed { get; private set; } = 1f;
+        [field: SerializeField] public float MinZoomDistance { get; private set; } = 7.5f;
+        [field: SerializeField] public float RotationSpeed { get; private set; } = 1f;
     }
 }

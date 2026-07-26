@@ -1,3 +1,4 @@
+using System;
 using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -6,12 +7,9 @@ namespace Scripts
 {
     public class PlayerInput : MonoBehaviour
     {
-        [SerializeField] private Transform _cameraTarget;
+        [SerializeField] private Rigidbody _cameraTarget;
         [SerializeField] private CinemachineCamera _cinemachineCamera;
-        [SerializeField] private float _keyboardPanSpeed = 5f;
-        [SerializeField] private float _zoomSpeed = 1f;
-        [SerializeField] private float _rotationSpeed = 1f;
-        [SerializeField] private float _minZoomDistance = 7.5f;
+        [SerializeField] private CameraConfig _cameraConfig;
 
         private CinemachineFollow _cinemachineFollow;
         private float _zoomStartTime;
@@ -46,7 +44,7 @@ namespace Scripts
                 _rotationStartTime = Time.time;  // сохраняем время начала вращения
             }
 
-            float rotationTime = Mathf.Clamp01((Time.time - _rotationStartTime) * _rotationSpeed);  // вычисляем время, прошедшее с начала вращения                                                                                                
+            float rotationTime = Mathf.Clamp01((Time.time - _rotationStartTime) * _cameraConfig.RotationSpeed);  // вычисляем время, прошедшее с начала вращения                                                                                                
 
             Vector3 targetFollowOffset;
 
@@ -91,30 +89,71 @@ namespace Scripts
 
         private void HandlePanning()
         {
+            Vector2 moveAmount = GetKeyboardMoveAmount();
+            moveAmount += GetMouseMoveAmount();
+
+            _cameraTarget.linearVelocity = new Vector3(moveAmount.x, 0f, moveAmount.y);  // задаем линейную скорость камеры по оси X и Y, оставляя Z неизменным
+        }
+
+        private Vector2 GetMouseMoveAmount()
+        {
             Vector2 moveAmount = Vector2.zero;
 
-            if (Keyboard.current.upArrowKey.isPressed)       // смещение камеры по оси Y при нажатии клавиш стрелок
+            if (!_cameraConfig.EnableEdgePan) // если EdgePan отключен, возвращаем нулевой вектор
             {
-                moveAmount.y += _keyboardPanSpeed;
+                return moveAmount;
+            }
+
+            Vector2 mousePosition = Mouse.current.position.ReadValue();  // получаем текущую позицию мыши
+            int screenWidth = Screen.width;                              // получаем ширину экрана - 1920
+            int screenHeight = Screen.height;                            // 1080
+
+            if (mousePosition.x <= _cameraConfig.EdgePanSize)  // если мышь находится в левой части экрана
+            {
+                moveAmount.x -= _cameraConfig.MousePanSpeed;           // перемещаем камеру влево
+            }
+            else if (mousePosition.x >= screenWidth - _cameraConfig.EdgePanSize)  // если мышь находится в правой части экрана
+            {
+                moveAmount.x += _cameraConfig.MousePanSpeed;           // перемещаем камеру вправо
+            }
+
+            if (mousePosition.y >= screenHeight - _cameraConfig.EdgePanSize)  // если мышь находится в верхней части экрана
+            {
+                moveAmount.y += _cameraConfig.MousePanSpeed;           // перемещаем камеру вверх
+            }
+            else if (mousePosition.y <= _cameraConfig.EdgePanSize)  // если мышь находится в нижней части экрана
+            {
+                moveAmount.y -= _cameraConfig.MousePanSpeed;           // перемещаем камеру вниз
+            }
+
+            return moveAmount;
+        }
+
+        private Vector2 GetKeyboardMoveAmount()
+        {
+            Vector2 moveAmount = Vector2.zero;
+
+            if (Keyboard.current.upArrowKey.isPressed)
+            {
+                moveAmount.y += _cameraConfig.KeyboardPanSpeed;
             }
 
             if (Keyboard.current.downArrowKey.isPressed)
             {
-                moveAmount.y -= _keyboardPanSpeed;
+                moveAmount.y -= _cameraConfig.KeyboardPanSpeed;
             }
 
             if (Keyboard.current.leftArrowKey.isPressed)
             {
-                moveAmount.x -= _keyboardPanSpeed;
+                moveAmount.x -= _cameraConfig.KeyboardPanSpeed;
             }
 
             if (Keyboard.current.rightArrowKey.isPressed)
             {
-                moveAmount.x += _keyboardPanSpeed;
+                moveAmount.x += _cameraConfig.KeyboardPanSpeed;
             }
 
-            moveAmount *= Time.deltaTime;                                           // умножаем на Time.deltaTime для плавного движения камеры
-            _cameraTarget.position += new Vector3(moveAmount.x, 0f, moveAmount.y);  // перемещаем камеру в пространстве по оси X и Y, оставляя Z неизменным
+            return moveAmount;
         }
 
         private void HandleZooming()
@@ -124,7 +163,7 @@ namespace Scripts
                 _zoomStartTime = Time.time;                     // сохраняем время начала зумирования
             }
 
-            float zoomTime = Mathf.Clamp01((Time.time - _zoomStartTime) * _zoomSpeed);  // вычисляем время, прошедшее с начала зумирования
+            float zoomTime = Mathf.Clamp01((Time.time - _zoomStartTime) * _cameraConfig.ZoomSpeed);  // вычисляем время, прошедшее с начала зумирования
                                                                                         // ограничиваем значение между 0 и 1 с помощью Mathf.Clamp01, чтобы избежать выхода за пределы диапазона
 
             Vector3 targetFollowOffset;
@@ -133,7 +172,7 @@ namespace Scripts
             {
                 targetFollowOffset = new Vector3(
                 _cinemachineFollow.FollowOffset.x,
-                _minZoomDistance,
+                _cameraConfig.MinZoomDistance,
                 _cinemachineFollow.FollowOffset.z
                 );
             }
