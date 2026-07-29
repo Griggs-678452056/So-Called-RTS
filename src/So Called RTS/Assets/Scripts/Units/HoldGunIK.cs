@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace GameDevTV.RTS.Units
+namespace Scripts
 {
     [DisallowMultipleComponent]
     [RequireComponent(typeof(Animator))]

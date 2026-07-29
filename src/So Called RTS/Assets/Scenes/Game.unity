@@ -323,6 +323,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Coral_Tubular_01CF (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 997180071630633055, guid: c9bc14ddd5a05e04c922524e6f501a92, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -453,6 +457,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 25938733}
+  - component: {fileID: 25938734}
   m_Layer: 0
   m_Name: Floor
   m_TagString: Untagged
@@ -479,6 +484,38 @@ Transform:
   - {fileID: 1204983810}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &25938734
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 25938730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshSurface
+  m_SerializedVersion: 0
+  m_AgentTypeID: 0
+  m_CollectObjects: 1
+  m_Size: {x: 96, y: 7, z: 128}
+  m_Center: {x: 0, y: 3, z: 0}
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 39
+  m_UseGeometry: 1
+  m_DefaultArea: 0
+  m_GenerateLinks: 0
+  m_IgnoreNavMeshAgent: 1
+  m_IgnoreNavMeshObstacle: 1
+  m_OverrideTileSize: 0
+  m_TileSize: 256
+  m_OverrideVoxelSize: 0
+  m_VoxelSize: 0.16666667
+  m_MinRegionArea: 2
+  m_NavMeshData: {fileID: 23800000, guid: fb13bdff7036fc743814f6396c80b996, type: 2}
+  m_BuildHeightMesh: 0
 --- !u!1 &34265727
 GameObject:
   m_ObjectHideFlags: 0
@@ -1923,6 +1960,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Coral_Tubular_03C (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 3337768143206374487, guid: 02342f0e8eca5e94a97c61650f817370, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1933,6 +1974,46 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2673434887991461613, guid: 02342f0e8eca5e94a97c61650f817370, type: 3}
   m_PrefabInstance: {fileID: 184177696}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &185694621 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6510919576379171628, guid: 883b9682b823cb84cac42e4ad43d41d2, type: 3}
+  m_PrefabInstance: {fileID: 1697603724}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &185694622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 185694621}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98ed6019580719740a24912be50f3e35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Scripts.Worker
+  _target: {fileID: 1842521627}
+--- !u!195 &185694623
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 185694621}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 2
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 1
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1001 &190756696
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2542,6 +2623,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rocks_Tentacles_02
       objectReference: {fileID: 0}
+    - target: {fileID: 6502336454719581191, guid: aae526639659c5d469aa184895de4f92, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2652,6 +2737,10 @@ PrefabInstance:
     - target: {fileID: 3337768143206374487, guid: 02342f0e8eca5e94a97c61650f817370, type: 3}
       propertyPath: m_Name
       value: Coral_Tubular_03C
+      objectReference: {fileID: 0}
+    - target: {fileID: 3337768143206374487, guid: 02342f0e8eca5e94a97c61650f817370, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2944,6 +3033,10 @@ PrefabInstance:
     - target: {fileID: 997180071630633055, guid: c9bc14ddd5a05e04c922524e6f501a92, type: 3}
       propertyPath: m_Name
       value: Coral_Tubular_01CF (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 997180071630633055, guid: c9bc14ddd5a05e04c922524e6f501a92, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3547,6 +3640,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Coral_Flat_02 (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 3329769850062385620, guid: d3f56a5754cf6024fa204bf4a56b9665, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3755,6 +3852,10 @@ PrefabInstance:
     - target: {fileID: 9158538191287633338, guid: ade960610bc4ebd409b351e6b345be2b, type: 3}
       propertyPath: m_Name
       value: Plant_Wispy_01B (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9158538191287633338, guid: ade960610bc4ebd409b351e6b345be2b, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5172,6 +5273,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Coral_Tubular_01CF
       objectReference: {fileID: 0}
+    - target: {fileID: 997180071630633055, guid: c9bc14ddd5a05e04c922524e6f501a92, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5602,6 +5707,10 @@ PrefabInstance:
     - target: {fileID: 997180071630633055, guid: c9bc14ddd5a05e04c922524e6f501a92, type: 3}
       propertyPath: m_Name
       value: Coral_Tubular_01CF (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 997180071630633055, guid: c9bc14ddd5a05e04c922524e6f501a92, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6217,6 +6326,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Coral_Tubular_01CF (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 997180071630633055, guid: c9bc14ddd5a05e04c922524e6f501a92, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6290,6 +6403,10 @@ PrefabInstance:
     - target: {fileID: 997180071630633055, guid: c9bc14ddd5a05e04c922524e6f501a92, type: 3}
       propertyPath: m_Name
       value: Coral_Tubular_01CF (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 997180071630633055, guid: c9bc14ddd5a05e04c922524e6f501a92, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6955,6 +7072,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Plant_Wispy_01B (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 9158538191287633338, guid: ade960610bc4ebd409b351e6b345be2b, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7164,6 +7285,10 @@ PrefabInstance:
     - target: {fileID: 3329769850062385620, guid: d3f56a5754cf6024fa204bf4a56b9665, type: 3}
       propertyPath: m_Name
       value: Coral_Flat_02 (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3329769850062385620, guid: d3f56a5754cf6024fa204bf4a56b9665, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7651,6 +7776,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Coral_Tubular_01CF (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 997180071630633055, guid: c9bc14ddd5a05e04c922524e6f501a92, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7735,6 +7864,66 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5004720826620963258, guid: 9cd21bf41652fdf49ba05bc10fa4d90d, type: 3}
   m_PrefabInstance: {fileID: 704334525}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &707647520
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4078631732461238711, guid: 883b9682b823cb84cac42e4ad43d41d2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 7.699
+      objectReference: {fileID: 0}
+    - target: {fileID: 4078631732461238711, guid: 883b9682b823cb84cac42e4ad43d41d2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4078631732461238711, guid: 883b9682b823cb84cac42e4ad43d41d2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -52
+      objectReference: {fileID: 0}
+    - target: {fileID: 4078631732461238711, guid: 883b9682b823cb84cac42e4ad43d41d2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4078631732461238711, guid: 883b9682b823cb84cac42e4ad43d41d2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4078631732461238711, guid: 883b9682b823cb84cac42e4ad43d41d2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4078631732461238711, guid: 883b9682b823cb84cac42e4ad43d41d2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4078631732461238711, guid: 883b9682b823cb84cac42e4ad43d41d2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4078631732461238711, guid: 883b9682b823cb84cac42e4ad43d41d2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4078631732461238711, guid: 883b9682b823cb84cac42e4ad43d41d2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6510919576379171628, guid: 883b9682b823cb84cac42e4ad43d41d2, type: 3}
+      propertyPath: m_Name
+      value: Worker (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6510919576379171628, guid: 883b9682b823cb84cac42e4ad43d41d2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1842521625}
+  m_SourcePrefab: {fileID: 100100000, guid: 883b9682b823cb84cac42e4ad43d41d2, type: 3}
 --- !u!1001 &716177243
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8001,6 +8190,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Plant_Wispy_01B (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 9158538191287633338, guid: ade960610bc4ebd409b351e6b345be2b, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8184,6 +8377,10 @@ PrefabInstance:
     - target: {fileID: 3337768143206374487, guid: 02342f0e8eca5e94a97c61650f817370, type: 3}
       propertyPath: m_Name
       value: Coral_Tubular_03C (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3337768143206374487, guid: 02342f0e8eca5e94a97c61650f817370, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8503,6 +8700,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Coral_Tubular_01CF (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 997180071630633055, guid: c9bc14ddd5a05e04c922524e6f501a92, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8805,6 +9006,10 @@ PrefabInstance:
     - target: {fileID: 3337768143206374487, guid: 02342f0e8eca5e94a97c61650f817370, type: 3}
       propertyPath: m_Name
       value: Coral_Tubular_03C (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3337768143206374487, guid: 02342f0e8eca5e94a97c61650f817370, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9183,6 +9388,10 @@ PrefabInstance:
     - target: {fileID: 3329769850062385620, guid: d3f56a5754cf6024fa204bf4a56b9665, type: 3}
       propertyPath: m_Name
       value: Coral_Flat_02 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3329769850062385620, guid: d3f56a5754cf6024fa204bf4a56b9665, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9781,6 +9990,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Coral_Tubular_03C (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 3337768143206374487, guid: 02342f0e8eca5e94a97c61650f817370, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10337,6 +10550,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Plant_Wispy_01B (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 9158538191287633338, guid: ade960610bc4ebd409b351e6b345be2b, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10827,6 +11044,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rocks_Tentacles_07
       objectReference: {fileID: 0}
+    - target: {fileID: 2270029169871243964, guid: 785ad428d49e25e45b4d4cd980b26923, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -11168,6 +11389,10 @@ PrefabInstance:
     - target: {fileID: 6502336454719581191, guid: aae526639659c5d469aa184895de4f92, type: 3}
       propertyPath: m_Name
       value: Rocks_Tentacles_02 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6502336454719581191, guid: aae526639659c5d469aa184895de4f92, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -12003,6 +12228,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rocks_Tentacles_01 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 906453665035458005, guid: 94b30b09f83696245ad68330a40df072, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -12138,6 +12367,10 @@ PrefabInstance:
     - target: {fileID: 3329769850062385620, guid: d3f56a5754cf6024fa204bf4a56b9665, type: 3}
       propertyPath: m_Name
       value: Coral_Flat_02 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3329769850062385620, guid: d3f56a5754cf6024fa204bf4a56b9665, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -12685,6 +12918,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Coral_Tubular_01CF (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 997180071630633055, guid: c9bc14ddd5a05e04c922524e6f501a92, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -12747,6 +12984,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rocks_Tentacles_02 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6502336454719581191, guid: aae526639659c5d469aa184895de4f92, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -12808,6 +13049,10 @@ PrefabInstance:
     - target: {fileID: 3329769850062385620, guid: d3f56a5754cf6024fa204bf4a56b9665, type: 3}
       propertyPath: m_Name
       value: Coral_Flat_02 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3329769850062385620, guid: d3f56a5754cf6024fa204bf4a56b9665, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -13104,6 +13349,10 @@ PrefabInstance:
     - target: {fileID: 9158538191287633338, guid: ade960610bc4ebd409b351e6b345be2b, type: 3}
       propertyPath: m_Name
       value: Plant_Wispy_01B (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9158538191287633338, guid: ade960610bc4ebd409b351e6b345be2b, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -13540,6 +13789,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Coral_Tubular_03C (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 3337768143206374487, guid: 02342f0e8eca5e94a97c61650f817370, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -13714,6 +13967,10 @@ PrefabInstance:
     - target: {fileID: 9158538191287633338, guid: ade960610bc4ebd409b351e6b345be2b, type: 3}
       propertyPath: m_Name
       value: Plant_Wispy_01B (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9158538191287633338, guid: ade960610bc4ebd409b351e6b345be2b, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -14987,6 +15244,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Coral_Tubular_03C (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 3337768143206374487, guid: 02342f0e8eca5e94a97c61650f817370, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -15860,6 +16121,10 @@ PrefabInstance:
     - target: {fileID: 9158538191287633338, guid: ade960610bc4ebd409b351e6b345be2b, type: 3}
       propertyPath: m_Name
       value: Plant_Wispy_01B (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9158538191287633338, guid: ade960610bc4ebd409b351e6b345be2b, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -17216,7 +17481,7 @@ MeshCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 5
   m_Convex: 0
   m_CookingOptions: 30
@@ -17978,6 +18243,10 @@ PrefabInstance:
     - target: {fileID: 9158538191287633338, guid: ade960610bc4ebd409b351e6b345be2b, type: 3}
       propertyPath: m_Name
       value: Plant_Wispy_01B
+      objectReference: {fileID: 0}
+    - target: {fileID: 9158538191287633338, guid: ade960610bc4ebd409b351e6b345be2b, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -18780,6 +19049,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rocks_Tentacles_01 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 906453665035458005, guid: 94b30b09f83696245ad68330a40df072, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -19435,6 +19708,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Plant_Wispy_01B (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 9158538191287633338, guid: ade960610bc4ebd409b351e6b345be2b, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -19727,6 +20004,10 @@ PrefabInstance:
     - target: {fileID: 3329769850062385620, guid: d3f56a5754cf6024fa204bf4a56b9665, type: 3}
       propertyPath: m_Name
       value: Coral_Flat_02 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3329769850062385620, guid: d3f56a5754cf6024fa204bf4a56b9665, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -21390,6 +21671,69 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 7238607690618788840, guid: 3ece5d289035d0b4580cc990a54e21cd, type: 3}
   m_PrefabInstance: {fileID: 1697413528}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1697603724
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4078631732461238711, guid: 883b9682b823cb84cac42e4ad43d41d2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4078631732461238711, guid: 883b9682b823cb84cac42e4ad43d41d2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4078631732461238711, guid: 883b9682b823cb84cac42e4ad43d41d2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -52
+      objectReference: {fileID: 0}
+    - target: {fileID: 4078631732461238711, guid: 883b9682b823cb84cac42e4ad43d41d2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4078631732461238711, guid: 883b9682b823cb84cac42e4ad43d41d2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4078631732461238711, guid: 883b9682b823cb84cac42e4ad43d41d2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4078631732461238711, guid: 883b9682b823cb84cac42e4ad43d41d2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4078631732461238711, guid: 883b9682b823cb84cac42e4ad43d41d2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4078631732461238711, guid: 883b9682b823cb84cac42e4ad43d41d2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4078631732461238711, guid: 883b9682b823cb84cac42e4ad43d41d2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6510919576379171628, guid: 883b9682b823cb84cac42e4ad43d41d2, type: 3}
+      propertyPath: m_Name
+      value: Worker
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6510919576379171628, guid: 883b9682b823cb84cac42e4ad43d41d2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 185694623}
+    - targetCorrespondingSourceObject: {fileID: 6510919576379171628, guid: 883b9682b823cb84cac42e4ad43d41d2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 185694622}
+  m_SourcePrefab: {fileID: 100100000, guid: 883b9682b823cb84cac42e4ad43d41d2, type: 3}
 --- !u!1001 &1701473984
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21613,6 +21957,10 @@ PrefabInstance:
     - target: {fileID: 906453665035458005, guid: 94b30b09f83696245ad68330a40df072, type: 3}
       propertyPath: m_Name
       value: Rocks_Tentacles_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 906453665035458005, guid: 94b30b09f83696245ad68330a40df072, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -21994,6 +22342,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Coral_Flat_02 (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 3329769850062385620, guid: d3f56a5754cf6024fa204bf4a56b9665, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -22303,6 +22655,10 @@ PrefabInstance:
     - target: {fileID: 906453665035458005, guid: 94b30b09f83696245ad68330a40df072, type: 3}
       propertyPath: m_Name
       value: Rocks_Tentacles_01 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 906453665035458005, guid: 94b30b09f83696245ad68330a40df072, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -22731,6 +23087,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Coral_Tubular_03C (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 3337768143206374487, guid: 02342f0e8eca5e94a97c61650f817370, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -23081,6 +23441,10 @@ PrefabInstance:
     - target: {fileID: 9158538191287633338, guid: ade960610bc4ebd409b351e6b345be2b, type: 3}
       propertyPath: m_Name
       value: Plant_Wispy_01B (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9158538191287633338, guid: ade960610bc4ebd409b351e6b345be2b, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -23619,6 +23983,38 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4078631732461238711, guid: 883b9682b823cb84cac42e4ad43d41d2, type: 3}
   m_PrefabInstance: {fileID: 1840643911}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1842521624 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6510919576379171628, guid: 883b9682b823cb84cac42e4ad43d41d2, type: 3}
+  m_PrefabInstance: {fileID: 707647520}
+  m_PrefabAsset: {fileID: 0}
+--- !u!195 &1842521625
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1842521624}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!4 &1842521627 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4078631732461238711, guid: 883b9682b823cb84cac42e4ad43d41d2, type: 3}
+  m_PrefabInstance: {fileID: 707647520}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1848810527
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23670,6 +24066,10 @@ PrefabInstance:
     - target: {fileID: 3329769850062385620, guid: d3f56a5754cf6024fa204bf4a56b9665, type: 3}
       propertyPath: m_Name
       value: Coral_Flat_02
+      objectReference: {fileID: 0}
+    - target: {fileID: 3329769850062385620, guid: d3f56a5754cf6024fa204bf4a56b9665, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -23846,6 +24246,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Coral_Tubular_01CF (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 997180071630633055, guid: c9bc14ddd5a05e04c922524e6f501a92, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -23981,6 +24385,10 @@ PrefabInstance:
     - target: {fileID: 9158538191287633338, guid: ade960610bc4ebd409b351e6b345be2b, type: 3}
       propertyPath: m_Name
       value: Plant_Wispy_01B (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9158538191287633338, guid: ade960610bc4ebd409b351e6b345be2b, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -24360,6 +24768,10 @@ PrefabInstance:
     - target: {fileID: 997180071630633055, guid: c9bc14ddd5a05e04c922524e6f501a92, type: 3}
       propertyPath: m_Name
       value: Coral_Tubular_01CF (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 997180071630633055, guid: c9bc14ddd5a05e04c922524e6f501a92, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -25157,6 +25569,10 @@ PrefabInstance:
     - target: {fileID: 6502336454719581191, guid: aae526639659c5d469aa184895de4f92, type: 3}
       propertyPath: m_Name
       value: Rocks_Tentacles_02 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6502336454719581191, guid: aae526639659c5d469aa184895de4f92, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -27798,3 +28214,5 @@ SceneRoots:
   - {fileID: 1562823543}
   - {fileID: 818478639}
   - {fileID: 131647425}
+  - {fileID: 1697603724}
+  - {fileID: 707647520}
