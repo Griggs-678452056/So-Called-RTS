@@ -1974,46 +1974,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2673434887991461613, guid: 02342f0e8eca5e94a97c61650f817370, type: 3}
   m_PrefabInstance: {fileID: 184177696}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &185694621 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6510919576379171628, guid: 883b9682b823cb84cac42e4ad43d41d2, type: 3}
-  m_PrefabInstance: {fileID: 1697603724}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &185694622
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 185694621}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 98ed6019580719740a24912be50f3e35, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Scripts.Worker
-  _target: {fileID: 1842521627}
---- !u!195 &185694623
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 185694621}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.5
-  m_Speed: 2
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 1
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 2
-  m_BaseOffset: 0
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
 --- !u!1001 &190756696
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4123,6 +4083,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerInput
   _cameraTarget: {fileID: 1325192345}
   _cinemachineCamera: {fileID: 1983021100}
+  _camera: {fileID: 330585545}
   _cameraConfig:
     <EnableEdgePan>k__BackingField: 1
     <MousePanSpeed>k__BackingField: 5
@@ -4131,6 +4092,12 @@ MonoBehaviour:
     <ZoomSpeed>k__BackingField: 1
     <MinZoomDistance>k__BackingField: 7.5
     <RotationSpeed>k__BackingField: 1
+  _selectableUnitsLayers:
+    serializedVersion: 2
+    m_Bits: 192
+  _floorLayers:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!114 &330585549
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7882,7 +7849,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4078631732461238711, guid: 883b9682b823cb84cac42e4ad43d41d2, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -52
+      value: -57
       objectReference: {fileID: 0}
     - target: {fileID: 4078631732461238711, guid: 883b9682b823cb84cac42e4ad43d41d2, type: 3}
       propertyPath: m_LocalRotation.w
@@ -17457,7 +17424,7 @@ GameObject:
   - component: {fileID: 1387778862}
   - component: {fileID: 1387778861}
   - component: {fileID: 1387778860}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Water
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21689,7 +21656,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4078631732461238711, guid: 883b9682b823cb84cac42e4ad43d41d2, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -52
+      value: -57
       objectReference: {fileID: 0}
     - target: {fileID: 4078631732461238711, guid: 883b9682b823cb84cac42e4ad43d41d2, type: 3}
       propertyPath: m_LocalRotation.w
@@ -21723,16 +21690,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Worker
       objectReference: {fileID: 0}
+    - target: {fileID: 8537524661580825125, guid: 883b9682b823cb84cac42e4ad43d41d2, type: 3}
+      propertyPath: _target
+      value: 
+      objectReference: {fileID: 1842521627}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6510919576379171628, guid: 883b9682b823cb84cac42e4ad43d41d2, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 185694623}
-    - targetCorrespondingSourceObject: {fileID: 6510919576379171628, guid: 883b9682b823cb84cac42e4ad43d41d2, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 185694622}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 883b9682b823cb84cac42e4ad43d41d2, type: 3}
 --- !u!1001 &1701473984
 PrefabInstance:
@@ -25192,7 +25157,7 @@ GameObject:
   - component: {fileID: 1933012997}
   - component: {fileID: 1933012996}
   - component: {fileID: 1933012995}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Terrain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25254,7 +25219,7 @@ Terrain:
   m_ScaleInLightmap: 0.0256
   m_LightmapParameters: {fileID: 15203, guid: 0000000000000000f000000000000000, type: 0}
   m_GroupingID: 0
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 2
   m_AllowAutoConnect: 1
   m_EnableHeightmapRayTracing: 1
   m_EnableTreesAndDetailsRayTracing: 0

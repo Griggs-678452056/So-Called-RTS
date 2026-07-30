@@ -1,3 +1,4 @@
+using System;
 using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -8,13 +9,17 @@ namespace Scripts
     {
         [SerializeField] private Rigidbody _cameraTarget;
         [SerializeField] private CinemachineCamera _cinemachineCamera;
+        [SerializeField] private Camera _camera;
         [SerializeField] private CameraConfig _cameraConfig;
+        [SerializeField] private LayerMask _selectableUnitsLayers;
+        [SerializeField] private LayerMask _floorLayers;
 
         private CinemachineFollow _cinemachineFollow;
         private float _zoomStartTime;
         private float _rotationStartTime;
         private Vector3 _startingFollowOffset;
         private float _maxRotationAmount;
+        private ISelectable _selectedUnit;
 
         private void Awake()
         {
@@ -34,6 +39,53 @@ namespace Scripts
             HandleZooming(); // вызываем метод для обработки зумирования камеры
 
             HandleRotation(); // вызываем метод для обработки вращения камеры
+
+            HandleLeftClick();
+
+            HandleRightClick();
+        }
+
+        private void HandleRightClick()
+        {
+            if (_selectedUnit == null || _selectedUnit is not IMovable movable)
+            {
+                return;
+            }
+
+            Ray cameraRay = _camera.ScreenPointToRay(Mouse.current.position.ReadValue());
+
+            if (Mouse.current.rightButton.wasReleasedThisFrame
+                && Physics.Raycast(cameraRay, out RaycastHit hit, float.MaxValue, _floorLayers))
+            {
+                movable.MoveTo(hit.point);
+            }
+        }
+
+
+        private void HandleLeftClick()
+        {
+            if (_camera == null)
+            {
+                return;
+            }
+
+            Ray cameraRay = _camera.ScreenPointToRay(Mouse.current.position.ReadValue());
+
+            if (Mouse.current.leftButton.wasReleasedThisFrame)
+            {
+                if (_selectedUnit != null)
+                {
+                    _selectedUnit.Deselect();
+                    _selectedUnit = null;
+                }
+
+                if (Physics.Raycast(cameraRay, out RaycastHit hit, float.MaxValue, _selectableUnitsLayers)
+                && hit.collider.TryGetComponent(out ISelectable selectable))
+                {
+                    selectable.Select();
+                    _selectedUnit = selectable;
+                }
+            }
         }
 
         private void HandleRotation()
@@ -163,7 +215,7 @@ namespace Scripts
             }
 
             float zoomTime = Mathf.Clamp01((Time.time - _zoomStartTime) * _cameraConfig.ZoomSpeed);  // вычисляем время, прошедшее с начала зумирования
-                                                                                        // ограничиваем значение между 0 и 1 с помощью Mathf.Clamp01, чтобы избежать выхода за пределы диапазона
+                                                                                                     // ограничиваем значение между 0 и 1 с помощью Mathf.Clamp01, чтобы избежать выхода за пределы диапазона
 
             Vector3 targetFollowOffset;
 
