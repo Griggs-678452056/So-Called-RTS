@@ -18,6 +18,8 @@ namespace Scripts
             {
                 _decalProjector.gameObject.SetActive(false);
             }
+
+            Bus<UnitDeselectedEvent>.Raise(new UnitDeselectedEvent(this));
         }
 
         public void MoveTo(Vector3 position)

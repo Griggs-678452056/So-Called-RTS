@@ -37,21 +37,22 @@ namespace Scripts
             _maxRotationAmount = Mathf.Abs(_cinemachineFollow.FollowOffset.z);
 
             Bus<UnitSelectedEvent>.OnEvent += HandleUnitSelected;
+            Bus<UnitDeselectedEvent>.OnEvent += HandleUnitDeselected;
         }
 
         private void OnDestroy()
         {
             Bus<UnitSelectedEvent>.OnEvent -= HandleUnitSelected;
+            Bus<UnitDeselectedEvent>.OnEvent -= HandleUnitDeselected;
         }
-
         private void HandleUnitSelected(UnitSelectedEvent evt)
         {
-            if (_selectedUnit != null)
-            {
-                _selectedUnit.Deselect();
-            }
-
             _selectedUnit = evt.Unit;
+        }
+
+        private void HandleUnitDeselected(UnitDeselectedEvent evt)
+        {
+            _selectedUnit = null;
         }
 
         private void Update()
@@ -130,7 +131,6 @@ namespace Scripts
                 if (_selectedUnit != null)
                 {
                     _selectedUnit.Deselect();
-                    _selectedUnit = null;
                 }
 
                 if (Physics.Raycast(cameraRay, out RaycastHit hit, float.MaxValue, _selectableUnitsLayers)
