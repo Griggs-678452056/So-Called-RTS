@@ -1,3 +1,5 @@
+using Scripts.EventBus;
+using Scripts.Events;
 using System;
 using Unity.Cinemachine;
 using UnityEngine;
@@ -13,6 +15,9 @@ namespace Scripts
         [SerializeField] private CameraConfig _cameraConfig;
         [SerializeField] private LayerMask _selectableUnitsLayers;
         [SerializeField] private LayerMask _floorLayers;
+        [SerializeField] private RectTransform _selectionBox;
+
+        private Vector2 _startingMousePosition;
 
         private CinemachineFollow _cinemachineFollow;
         private float _zoomStartTime;
@@ -30,19 +35,68 @@ namespace Scripts
 
             _startingFollowOffset = _cinemachineFollow.FollowOffset;          // сохраняем начальное смещение камеры для последующего использования
             _maxRotationAmount = Mathf.Abs(_cinemachineFollow.FollowOffset.z);
+
+            Bus<UnitSelectedEvent>.OnEvent += HandleUnitSelected;
+        }
+
+        private void OnDestroy()
+        {
+            Bus<UnitSelectedEvent>.OnEvent -= HandleUnitSelected;
+        }
+
+        private void HandleUnitSelected(UnitSelectedEvent evt)
+        {
+            if (_selectedUnit != null)
+            {
+                _selectedUnit.Deselect();
+            }
+
+            _selectedUnit = evt.Unit;
         }
 
         private void Update()
         {
             HandlePanning(); // вызываем метод для обработки перемещения камеры
-
             HandleZooming(); // вызываем метод для обработки зумирования камеры
-
             HandleRotation(); // вызываем метод для обработки вращения камеры
-
             HandleLeftClick();
-
             HandleRightClick();
+            HandleDragSelect();
+        }
+
+        private void HandleDragSelect()
+        {
+            if (_selectionBox == null)
+            {
+                return;
+            }
+
+            if (Mouse.current.leftButton.wasPressedThisFrame)
+            {
+                _selectionBox.gameObject.SetActive(true); // активируем UI элемент для выделения
+                _startingMousePosition = Mouse.current.position.ReadValue(); // сохраняем начальную позицию мыши
+            }
+            else if (Mouse.current.leftButton.isPressed && !Mouse.current.leftButton.wasReleasedThisFrame)
+            {
+                ResizeSelectionBox();
+            }
+            else if (Mouse.current.leftButton.wasReleasedThisFrame)
+            {
+                // выбираем новые юниты
+                // юниты за пределами выделения должны быть сняты с выделения
+                _selectionBox.gameObject.SetActive(false); // деактивируем UI элемент для выделения
+            }
+        }
+
+        private void ResizeSelectionBox()
+        {
+            Vector2 mousePosition = Mouse.current.position.ReadValue(); // получаем текущую позицию мыши
+
+            float width = mousePosition.x - _startingMousePosition.x; // вычисляем ширину выделения
+            float height = mousePosition.y - _startingMousePosition.y; // вычисляем высоту выделения
+
+            _selectionBox.anchoredPosition = _startingMousePosition + new Vector2(width / 2, height / 2); // задаем позицию UI элемента для выделения
+            _selectionBox.sizeDelta = new Vector2(Mathf.Abs(width), Mathf.Abs(height)); // обновляем размер UI элемента
         }
 
         private void HandleRightClick()
@@ -83,7 +137,6 @@ namespace Scripts
                 && hit.collider.TryGetComponent(out ISelectable selectable))
                 {
                     selectable.Select();
-                    _selectedUnit = selectable;
                 }
             }
         }

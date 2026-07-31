@@ -1,3 +1,5 @@
+using Scripts.EventBus;
+using Scripts.Events;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Rendering.Universal;
@@ -29,6 +31,8 @@ namespace Scripts
             {
                 _decalProjector.gameObject.SetActive(true);
             }
+
+            Bus<UnitSelectedEvent>.Raise(new UnitSelectedEvent(this));
         }
 
         private void Awake()
