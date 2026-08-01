@@ -1,6 +1,8 @@
 using Scripts.EventBus;
 using Scripts.Events;
+using Scripts.Units;
 using System;
+using System.Collections.Generic;
 using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -24,7 +26,9 @@ namespace Scripts
         private float _rotationStartTime;
         private Vector3 _startingFollowOffset;
         private float _maxRotationAmount;
-        private ISelectable _selectedUnit;
+        private HashSet<AbstractUnit> _aliveUnits = new(100);
+        private HashSet<AbstractUnit> _addedUnits = new(24);
+        private List<ISelectable> _selectedUnits = new(12);
 
         private void Awake()
         {
@@ -38,21 +42,29 @@ namespace Scripts
 
             Bus<UnitSelectedEvent>.OnEvent += HandleUnitSelected;
             Bus<UnitDeselectedEvent>.OnEvent += HandleUnitDeselected;
+            Bus<UnitSpawnEvent>.OnEvent += HandleUnitSpawn;
         }
 
         private void OnDestroy()
         {
             Bus<UnitSelectedEvent>.OnEvent -= HandleUnitSelected;
             Bus<UnitDeselectedEvent>.OnEvent -= HandleUnitDeselected;
+            Bus<UnitSpawnEvent>.OnEvent -= HandleUnitSpawn;
         }
+
+        private void HandleUnitSpawn(UnitSpawnEvent evt)
+        {
+            _aliveUnits.Add(evt.Unit);
+        }
+
         private void HandleUnitSelected(UnitSelectedEvent evt)
         {
-            _selectedUnit = evt.Unit;
+            _selectedUnits.Add(evt.Unit);
         }
 
         private void HandleUnitDeselected(UnitDeselectedEvent evt)
         {
-            _selectedUnit = null;
+            _selectedUnits.Remove(evt.Unit);
         }
 
         private void Update()
@@ -74,22 +86,45 @@ namespace Scripts
 
             if (Mouse.current.leftButton.wasPressedThisFrame)
             {
+                _selectionBox.sizeDelta = Vector2.zero;
                 _selectionBox.gameObject.SetActive(true); // активируем UI элемент для выделения
                 _startingMousePosition = Mouse.current.position.ReadValue(); // сохраняем начальную позицию мыши
+                _addedUnits.Clear();
             }
             else if (Mouse.current.leftButton.isPressed && !Mouse.current.leftButton.wasReleasedThisFrame)
             {
-                ResizeSelectionBox();
+                Bounds selectionBoxBounds = ResizeSelectionBox();
+                foreach (AbstractUnit unit in _aliveUnits)
+                {
+                    Vector2 unitPosition = _camera.WorldToScreenPoint(unit.transform.position); // получаем позицию юнита на экране
+
+                    if (selectionBoxBounds.Contains(unitPosition)) // проверяем, находится ли юнит внутри выделения
+                    {
+                        _addedUnits.Add(unit);
+                    }
+                }
             }
             else if (Mouse.current.leftButton.wasReleasedThisFrame)
             {
-                // выбираем новые юниты
-                // юниты за пределами выделения должны быть сняты с выделения
+                DeselectAllUnits();
+                foreach (AbstractUnit unit in _aliveUnits)
+                {
+                    unit.Select();
+                }
                 _selectionBox.gameObject.SetActive(false); // деактивируем UI элемент для выделения
             }
         }
 
-        private void ResizeSelectionBox()
+        private void DeselectAllUnits()
+        {
+            ISelectable[] currentlySelectedUnits = _selectedUnits.ToArray(); // создаем копию списка выделенных юнитов
+            foreach (ISelectable selectable in currentlySelectedUnits)
+            {
+                selectable.Deselect(); // снимаем выделение с каждого юнита
+            }
+        }
+
+        private Bounds ResizeSelectionBox()
         {
             Vector2 mousePosition = Mouse.current.position.ReadValue(); // получаем текущую позицию мыши
 
@@ -98,11 +133,13 @@ namespace Scripts
 
             _selectionBox.anchoredPosition = _startingMousePosition + new Vector2(width / 2, height / 2); // задаем позицию UI элемента для выделения
             _selectionBox.sizeDelta = new Vector2(Mathf.Abs(width), Mathf.Abs(height)); // обновляем размер UI элемента
+
+            return new Bounds(_selectionBox.anchoredPosition, _selectionBox.sizeDelta); // возвращаем границы выделения
         }
 
         private void HandleRightClick()
         {
-            if (_selectedUnit == null || _selectedUnit is not IMovable movable)
+            if (_selectedUnits.Count == 0)
             {
                 return;
             }
@@ -112,33 +149,39 @@ namespace Scripts
             if (Mouse.current.rightButton.wasReleasedThisFrame
                 && Physics.Raycast(cameraRay, out RaycastHit hit, float.MaxValue, _floorLayers))
             {
-                movable.MoveTo(hit.point);
+                foreach (ISelectable selectable in _selectedUnits)
+                {
+                    if (selectable is IMovable movable)
+                    {
+                        movable.MoveTo(hit.point);
+                    }
+                }
             }
         }
 
 
         private void HandleLeftClick()
         {
-            if (_camera == null)
-            {
-                return;
-            }
+            //if (_camera == null)
+            //{
+            //    return;
+            //}
 
-            Ray cameraRay = _camera.ScreenPointToRay(Mouse.current.position.ReadValue());
+            //Ray cameraRay = _camera.ScreenPointToRay(Mouse.current.position.ReadValue());
 
-            if (Mouse.current.leftButton.wasReleasedThisFrame)
-            {
-                if (_selectedUnit != null)
-                {
-                    _selectedUnit.Deselect();
-                }
+            //if (Mouse.current.leftButton.wasReleasedThisFrame)
+            //{
+            //    if (_selectedUnit != null)
+            //    {
+            //        _selectedUnit.Deselect();
+            //    }
 
-                if (Physics.Raycast(cameraRay, out RaycastHit hit, float.MaxValue, _selectableUnitsLayers)
-                && hit.collider.TryGetComponent(out ISelectable selectable))
-                {
-                    selectable.Select();
-                }
-            }
+            //    if (Physics.Raycast(cameraRay, out RaycastHit hit, float.MaxValue, _selectableUnitsLayers)
+            //    && hit.collider.TryGetComponent(out ISelectable selectable))
+            //    {
+            //        selectable.Select();
+            //    }
+            //}
         }
 
         private void HandleRotation()
