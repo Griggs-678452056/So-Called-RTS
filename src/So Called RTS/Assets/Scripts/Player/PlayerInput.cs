@@ -72,7 +72,6 @@ namespace Scripts
             HandlePanning(); // вызываем метод для обработки перемещения камеры
             HandleZooming(); // вызываем метод для обработки зумирования камеры
             HandleRotation(); // вызываем метод для обработки вращения камеры
-            HandleLeftClick();
             HandleRightClick();
             HandleDragSelect();
         }
@@ -86,33 +85,53 @@ namespace Scripts
 
             if (Mouse.current.leftButton.wasPressedThisFrame)
             {
-                _selectionBox.sizeDelta = Vector2.zero;
-                _selectionBox.gameObject.SetActive(true); // активируем UI элемент для выделения
-                _startingMousePosition = Mouse.current.position.ReadValue(); // сохраняем начальную позицию мыши
-                _addedUnits.Clear();
+                HandleMouseDown();
             }
             else if (Mouse.current.leftButton.isPressed && !Mouse.current.leftButton.wasReleasedThisFrame)
             {
-                Bounds selectionBoxBounds = ResizeSelectionBox();
-                foreach (AbstractUnit unit in _aliveUnits)
-                {
-                    Vector2 unitPosition = _camera.WorldToScreenPoint(unit.transform.position); // получаем позицию юнита на экране
-
-                    if (selectionBoxBounds.Contains(unitPosition)) // проверяем, находится ли юнит внутри выделения
-                    {
-                        _addedUnits.Add(unit);
-                    }
-                }
+                HandleMouseDrag();
             }
             else if (Mouse.current.leftButton.wasReleasedThisFrame)
             {
-                DeselectAllUnits();
-                foreach (AbstractUnit unit in _aliveUnits)
-                {
-                    unit.Select();
-                }
-                _selectionBox.gameObject.SetActive(false); // деактивируем UI элемент для выделения
+                HandleMouseUp();
             }
+        }
+
+        private void HandleMouseUp()
+        {
+            if (!Keyboard.current.shiftKey.isPressed)
+            {
+                DeselectAllUnits();
+            }
+
+            HandleLeftClick();
+            foreach (AbstractUnit unit in _addedUnits)
+            {
+                unit.Select();
+            }
+            _selectionBox.gameObject.SetActive(false); // деактивируем UI элемент для выделения
+        }
+
+        private void HandleMouseDrag()
+        {
+            Bounds selectionBoxBounds = ResizeSelectionBox();
+            foreach (AbstractUnit unit in _aliveUnits)
+            {
+                Vector2 unitPosition = _camera.WorldToScreenPoint(unit.transform.position); // получаем позицию юнита на экране
+
+                if (selectionBoxBounds.Contains(unitPosition)) // проверяем, находится ли юнит внутри выделения
+                {
+                    _addedUnits.Add(unit);
+                }
+            }
+        }
+
+        private void HandleMouseDown()
+        {
+            _selectionBox.sizeDelta = Vector2.zero;
+            _selectionBox.gameObject.SetActive(true); // активируем UI элемент для выделения
+            _startingMousePosition = Mouse.current.position.ReadValue(); // сохраняем начальную позицию мыши
+            _addedUnits.Clear();
         }
 
         private void DeselectAllUnits()
@@ -149,39 +168,66 @@ namespace Scripts
             if (Mouse.current.rightButton.wasReleasedThisFrame
                 && Physics.Raycast(cameraRay, out RaycastHit hit, float.MaxValue, _floorLayers))
             {
+                List<AbstractUnit> abstractUnits = new List<AbstractUnit>(_selectedUnits.Count);
                 foreach (ISelectable selectable in _selectedUnits)
                 {
-                    if (selectable is IMovable movable)
+                    if (selectable is AbstractUnit unit)
                     {
-                        movable.MoveTo(hit.point);
+                        abstractUnits.Add(unit);
                     }
                 }
+
+                int unitsOnLayer = 0;
+                int maxUnitsOnLayer = 1;
+                float circleRadius = 0;
+                float radiusOffset = 0;
+
+                foreach (AbstractUnit unit in abstractUnits)
+                {
+                    Vector3 targetPosition = new(
+                        hit.point.x + circleRadius * Mathf.Cos(radiusOffset * unitsOnLayer),
+                        hit.point.y,
+                        hit.point.z + circleRadius * Mathf.Sin(radiusOffset * unitsOnLayer)
+                        );
+
+                    unit.MoveTo(targetPosition);
+                    unitsOnLayer++;
+
+                    if (unitsOnLayer >= maxUnitsOnLayer)
+                    {
+                        unitsOnLayer = 0;
+                        circleRadius += unit.AgentRadius * 3.5f;
+                        maxUnitsOnLayer = Mathf.FloorToInt(2 * Mathf.PI * circleRadius / (unit.AgentRadius * 2));
+                        radiusOffset = 2 * Mathf.PI / maxUnitsOnLayer;
+                    }
+                }
+
+                //foreach (ISelectable selectable in _selectedUnits)
+                //{
+                //    if (selectable is IMovable movable)
+                //    {
+                //        movable.MoveTo(hit.point);
+                //    }
+                //}
             }
         }
 
 
         private void HandleLeftClick()
         {
-            //if (_camera == null)
-            //{
-            //    return;
-            //}
+            if (_camera == null)
+            {
+                return;
+            }
 
-            //Ray cameraRay = _camera.ScreenPointToRay(Mouse.current.position.ReadValue());
+            Ray cameraRay = _camera.ScreenPointToRay(Mouse.current.position.ReadValue());
 
-            //if (Mouse.current.leftButton.wasReleasedThisFrame)
-            //{
-            //    if (_selectedUnit != null)
-            //    {
-            //        _selectedUnit.Deselect();
-            //    }
+            if (Physics.Raycast(cameraRay, out RaycastHit hit, float.MaxValue, _selectableUnitsLayers)
+                && hit.collider.TryGetComponent(out ISelectable selectable))
+            {
+                selectable.Select();
+            }
 
-            //    if (Physics.Raycast(cameraRay, out RaycastHit hit, float.MaxValue, _selectableUnitsLayers)
-            //    && hit.collider.TryGetComponent(out ISelectable selectable))
-            //    {
-            //        selectable.Select();
-            //    }
-            //}
         }
 
         private void HandleRotation()

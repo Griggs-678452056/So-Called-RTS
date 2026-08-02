@@ -10,6 +10,7 @@ namespace Scripts.Units
     public abstract class AbstractUnit : MonoBehaviour, ISelectable, IMovable
     {
         [SerializeField] private DecalProjector _decalProjector;
+        public float AgentRadius => _agent.radius;
         private NavMeshAgent _agent;
 
         private void Awake()
