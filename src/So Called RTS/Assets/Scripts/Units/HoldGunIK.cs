@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Scripts
+namespace Scripts.Units
 {
     [DisallowMultipleComponent]
     [RequireComponent(typeof(Animator))]

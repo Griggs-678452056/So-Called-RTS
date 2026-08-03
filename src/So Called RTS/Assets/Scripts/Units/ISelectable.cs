@@ -1,4 +1,4 @@
-﻿namespace Scripts
+﻿namespace Scripts.Units
 {
     public interface ISelectable
     {
