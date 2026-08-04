@@ -1,3 +1,4 @@
+using Scripts.Commands;
 using Scripts.EventBus;
 using Scripts.Events;
 using Scripts.Units;
@@ -167,6 +168,7 @@ namespace Scripts
             if (Mouse.current.rightButton.wasReleasedThisFrame
                 && Physics.Raycast(cameraRay, out RaycastHit hit, float.MaxValue, _floorLayers))
             {
+
                 List<AbstractUnit> abstractUnits = new List<AbstractUnit>(_selectedUnits.Count);
                 foreach (ISelectable selectable in _selectedUnits)
                 {
@@ -176,29 +178,37 @@ namespace Scripts
                     }
                 }
 
-                int unitsOnLayer = 0;
-                int maxUnitsOnLayer = 1;
-                float circleRadius = 0;
-                float radiusOffset = 0;
+                //int unitsOnLayer = 0;
+                //int maxUnitsOnLayer = 1;
+                //float circleRadius = 0;
+                //float radiusOffset = 0;
 
                 foreach (AbstractUnit unit in abstractUnits)
                 {
-                    Vector3 targetPosition = new(
-                        hit.point.x + circleRadius * Mathf.Cos(radiusOffset * unitsOnLayer),
-                        hit.point.y,
-                        hit.point.z + circleRadius * Mathf.Sin(radiusOffset * unitsOnLayer)
-                        );
-
-                    unit.MoveTo(targetPosition);
-                    unitsOnLayer++;
-
-                    if (unitsOnLayer >= maxUnitsOnLayer)
+                    foreach (ICommand command in unit.AvailableCommands)
                     {
-                        unitsOnLayer = 0;
-                        circleRadius += unit.AgentRadius * 3.5f;
-                        maxUnitsOnLayer = Mathf.FloorToInt(2 * Mathf.PI * circleRadius / (unit.AgentRadius * 2));
-                        radiusOffset = 2 * Mathf.PI / maxUnitsOnLayer;
+                        if (command.CanHandle(unit, hit))
+                        {
+                            command.Handle(unit, hit);                            
+                        }
                     }
+
+                    //Vector3 targetPosition = new(
+                    //    hit.point.x + circleRadius * Mathf.Cos(radiusOffset * unitsOnLayer),
+                    //    hit.point.y,
+                    //    hit.point.z + circleRadius * Mathf.Sin(radiusOffset * unitsOnLayer)
+                    //    );
+
+                    //unit.MoveTo(targetPosition);
+                    //unitsOnLayer++;
+
+                    //if (unitsOnLayer >= maxUnitsOnLayer)
+                    //{
+                    //    unitsOnLayer = 0;
+                    //    circleRadius += unit.AgentRadius * 3.5f;
+                    //    maxUnitsOnLayer = Mathf.FloorToInt(2 * Mathf.PI * circleRadius / (unit.AgentRadius * 2));
+                    //    radiusOffset = 2 * Mathf.PI / maxUnitsOnLayer;
+                    //}
                 }
 
                 //foreach (ISelectable selectable in _selectedUnits)
