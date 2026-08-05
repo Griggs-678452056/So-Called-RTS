@@ -1,7 +1,6 @@
 ﻿using Scripts.Commands;
 using Scripts.EventBus;
 using Scripts.Events;
-using System.Windows.Input;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 

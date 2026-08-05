@@ -168,7 +168,6 @@ namespace Scripts
             if (Mouse.current.rightButton.wasReleasedThisFrame
                 && Physics.Raycast(cameraRay, out RaycastHit hit, float.MaxValue, _floorLayers))
             {
-
                 List<AbstractUnit> abstractUnits = new List<AbstractUnit>(_selectedUnits.Count);
                 foreach (ISelectable selectable in _selectedUnits)
                 {
@@ -177,47 +176,20 @@ namespace Scripts
                         abstractUnits.Add(unit);
                     }
                 }
-
-                //int unitsOnLayer = 0;
-                //int maxUnitsOnLayer = 1;
-                //float circleRadius = 0;
-                //float radiusOffset = 0;
-
-                foreach (AbstractUnit unit in abstractUnits)
+                                
+                for (int i = 0; i < abstractUnits.Count; i++)
                 {
-                    foreach (ICommand command in unit.AvailableCommands)
+                    CommandContext context = new (abstractUnits[i], hit, i);
+
+                    foreach (ICommand command in abstractUnits[i].AvailableCommands)
                     {
-                        if (command.CanHandle(unit, hit))
+                        if (command.CanHandle(context))
                         {
-                            command.Handle(unit, hit);                            
+                            command.Handle(context);
+                            break;
                         }
-                    }
-
-                    //Vector3 targetPosition = new(
-                    //    hit.point.x + circleRadius * Mathf.Cos(radiusOffset * unitsOnLayer),
-                    //    hit.point.y,
-                    //    hit.point.z + circleRadius * Mathf.Sin(radiusOffset * unitsOnLayer)
-                    //    );
-
-                    //unit.MoveTo(targetPosition);
-                    //unitsOnLayer++;
-
-                    //if (unitsOnLayer >= maxUnitsOnLayer)
-                    //{
-                    //    unitsOnLayer = 0;
-                    //    circleRadius += unit.AgentRadius * 3.5f;
-                    //    maxUnitsOnLayer = Mathf.FloorToInt(2 * Mathf.PI * circleRadius / (unit.AgentRadius * 2));
-                    //    radiusOffset = 2 * Mathf.PI / maxUnitsOnLayer;
-                    //}
+                    }                                       
                 }
-
-                //foreach (ISelectable selectable in _selectedUnits)
-                //{
-                //    if (selectable is IMovable movable)
-                //    {
-                //        movable.MoveTo(hit.point);
-                //    }
-                //}
             }
         }
 
