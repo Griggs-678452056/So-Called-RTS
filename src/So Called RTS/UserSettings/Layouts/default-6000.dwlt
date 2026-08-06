@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1920
     height: 989
   m_ShowMode: 4
-  m_Title: Hierarchy
+  m_Title: Project
   m_RootView: {fileID: 4}
   m_MinSize: {x: 875, y: 338}
   m_MaxSize: {x: 10000, y: 10000}
@@ -74,7 +74,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 112}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 134
+  controlID: 143
   draggingID: 0
 --- !u!114 &4
 MonoBehaviour:
@@ -172,7 +172,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 112}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 191
+  controlID: 142
   draggingID: 0
 --- !u!114 &8
 MonoBehaviour:
@@ -247,8 +247,8 @@ MonoBehaviour:
     y: 0
     width: 400
     height: 933
-  m_MinSize: {x: 276, y: 76}
-  m_MaxSize: {x: 4001, y: 4026}
+  m_MinSize: {x: 275, y: 50}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 17}
   m_Panes:
   - {fileID: 17}
@@ -674,7 +674,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 0
     m_Folders:
-    - Assets/Units/Commands
+    - Assets/Scripts/UI
     m_Globs: []
     m_ProductIds: 
     m_AnyWithAssetOrigin: 0
@@ -684,24 +684,24 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/Units/Commands
+  - Assets/Scripts/UI
   m_LastFoldersGridSize: 16
   m_LastProjectPath: C:\Users\111\Desktop\repos\So-Called-RTS\src\So Called RTS
   m_LockTracker:
     m_IsLocked: 0
   m_LastLocalAssetsSearchArea: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 214}
+    scrollPos: {x: 0, y: 34}
     m_SelectedIDs:
-    - m_Data: 58758
+    - m_Data: 58858
     m_LastClickedID:
-      m_Data: 58758
+      m_Data: 58858
     m_ExpandedIDs:
     - m_Data: 0
-    - m_Data: 58596
-    - m_Data: 58598
     - m_Data: 58600
     - m_Data: 58602
+    - m_Data: 58604
+    - m_Data: 58606
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -734,10 +734,10 @@ MonoBehaviour:
       m_Data: 0
     m_ExpandedIDs:
     - m_Data: 0
-    - m_Data: 58596
-    - m_Data: 58598
     - m_Data: 58600
     - m_Data: 58602
+    - m_Data: 58604
+    - m_Data: 58606
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1374,9 +1374,9 @@ MonoBehaviour:
   m_AudioPlay: 0
   m_DebugDrawModesUseInteractiveLightBakingData: 0
   m_Position:
-    m_Target: {x: 3.4546063, y: 2.1519127, z: -57.31364}
+    m_Target: {x: 3.7426302, y: 1.450315, z: -57}
     speed: 2
-    m_Value: {x: 3.4546063, y: 2.1519127, z: -57.31364}
+    m_Value: {x: 3.742655, y: 1.4503071, z: -56.999996}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1414,7 +1414,7 @@ MonoBehaviour:
       m_Fade:
         m_Target: 0
         speed: 2
-        m_Value: 0
+        m_Value: 1
       m_Color: {r: 0.5, g: 0.5, b: 0.5, a: 0.4}
       m_Pivot: {x: 0, y: 0, z: 0}
       m_Size: {x: 1, y: 1}
@@ -1424,11 +1424,11 @@ MonoBehaviour:
   m_Rotation:
     m_Target: {x: 0.30638763, y: 0.004283583, z: -0.0013790181, w: 0.9518996}
     speed: 2
-    m_Value: {x: 0.30638665, y: 0.004283569, z: -0.0013790136, w: 0.95189655}
+    m_Value: {x: 0.30638662, y: 0.0042835684, z: -0.0013790135, w: 0.95189655}
   m_Size:
-    m_Target: 3.6546783
+    m_Target: 9.283345
     speed: 2
-    m_Value: 3.6546783
+    m_Value: 8.883584
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -1446,7 +1446,7 @@ MonoBehaviour:
     m_FarClip: 10000
     m_DynamicClip: 1
     m_OcclusionCulling: 0
-  m_LastSceneViewRotation: {x: -0.08717229, y: 0.89959055, z: -0.21045254, w: -0.3726226}
+  m_LastSceneViewRotation: {x: 0.30638763, y: 0.004283583, z: -0.0013790181, w: 0.9518996}
   m_LastSceneViewOrtho: 0
   m_Viewpoint:
     m_SceneView: {fileID: 15}
@@ -1508,6 +1508,11 @@ MonoBehaviour:
         m_Data: 0
       m_ExpandedIDs:
       - m_Data: -1346
+      - m_Data: 54300
+      - m_Data: 54698
+      - m_Data: 54754
+      - m_Data: 55108
+      - m_Data: 55702
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 

@@ -3,8 +3,10 @@ using Scripts.EventBus;
 using Scripts.Events;
 using Scripts.Units;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.Cinemachine;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
 namespace Scripts
@@ -21,6 +23,8 @@ namespace Scripts
 
         private Vector2 _startingMousePosition;
 
+        private ActionBase _activeAction;
+        private bool _wasMouseDownOnUI;
         private CinemachineFollow _cinemachineFollow;
         private float _zoomStartTime;
         private float _rotationStartTime;
@@ -43,6 +47,7 @@ namespace Scripts
             Bus<UnitSelectedEvent>.OnEvent += HandleUnitSelected;
             Bus<UnitDeselectedEvent>.OnEvent += HandleUnitDeselected;
             Bus<UnitSpawnEvent>.OnEvent += HandleUnitSpawn;
+            Bus<ActionSelectedEvent>.OnEvent += HandleActionSelected;
         }
 
         private void OnDestroy()
@@ -50,6 +55,7 @@ namespace Scripts
             Bus<UnitSelectedEvent>.OnEvent -= HandleUnitSelected;
             Bus<UnitDeselectedEvent>.OnEvent -= HandleUnitDeselected;
             Bus<UnitSpawnEvent>.OnEvent -= HandleUnitSpawn;
+            Bus<ActionSelectedEvent>.OnEvent -= HandleActionSelected;
         }
 
         private void HandleUnitSpawn(UnitSpawnEvent evt)
@@ -65,6 +71,11 @@ namespace Scripts
         private void HandleUnitDeselected(UnitDeselectedEvent evt)
         {
             _selectedUnits.Remove(evt.Unit);
+        }
+
+        private void HandleActionSelected(ActionSelectedEvent evt)
+        {
+            _activeAction = evt.Action;
         }
 
         private void Update()
@@ -99,7 +110,7 @@ namespace Scripts
 
         private void HandleMouseUp()
         {
-            if (!Keyboard.current.shiftKey.isPressed)
+            if (_activeAction == null && !Keyboard.current.shiftKey.isPressed)
             {
                 DeselectAllUnits();
             }
@@ -114,6 +125,12 @@ namespace Scripts
 
         private void HandleMouseDrag()
         {
+
+            if (_activeAction != null || _wasMouseDownOnUI)
+            {
+                return;
+            }
+
             Bounds selectionBoxBounds = ResizeSelectionBox();
             foreach (AbstractUnit unit in _aliveUnits)
             {
@@ -132,6 +149,7 @@ namespace Scripts
             _selectionBox.gameObject.SetActive(true); // активируем UI элемент для выделения
             _startingMousePosition = Mouse.current.position.ReadValue(); // сохраняем начальную позицию мыши
             _addedUnits.Clear();
+            _wasMouseDownOnUI = EventSystem.current.IsPointerOverGameObject(); // проверяем, был ли клик по UI
         }
 
         private void DeselectAllUnits()
@@ -176,10 +194,10 @@ namespace Scripts
                         abstractUnits.Add(unit);
                     }
                 }
-                                
+
                 for (int i = 0; i < abstractUnits.Count; i++)
                 {
-                    CommandContext context = new (abstractUnits[i], hit, i);
+                    CommandContext context = new(abstractUnits[i], hit, i);
 
                     foreach (ICommand command in abstractUnits[i].AvailableCommands)
                     {
@@ -188,7 +206,7 @@ namespace Scripts
                             command.Handle(context);
                             break;
                         }
-                    }                                       
+                    }
                 }
             }
         }
@@ -203,10 +221,28 @@ namespace Scripts
 
             Ray cameraRay = _camera.ScreenPointToRay(Mouse.current.position.ReadValue());
 
-            if (Physics.Raycast(cameraRay, out RaycastHit hit, float.MaxValue, _selectableUnitsLayers)
+            if (_activeAction == null
+                && Physics.Raycast(cameraRay, out RaycastHit hit, float.MaxValue, _selectableUnitsLayers)
                 && hit.collider.TryGetComponent(out ISelectable selectable))
             {
                 selectable.Select();
+            }
+            else if (_activeAction != null
+                && !EventSystem.current.IsPointerOverGameObject()
+                && Physics.Raycast(cameraRay, out hit, float.MaxValue, _floorLayers))
+            {
+                List<AbstractUnit> abstractUnits = _selectedUnits
+                    .Where(unit => unit is AbstractUnit)
+                    .Cast<AbstractUnit>()
+                    .ToList();
+
+                for (int i = 0; i < abstractUnits.Count; i++)
+                {
+                    CommandContext context = new(abstractUnits[i], hit, i);
+                    _activeAction.Handle(context);
+                }
+
+                _activeAction = null;
             }
 
         }
