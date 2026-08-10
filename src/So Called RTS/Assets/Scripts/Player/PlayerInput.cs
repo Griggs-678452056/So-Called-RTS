@@ -76,6 +76,11 @@ namespace Scripts
         private void HandleActionSelected(ActionSelectedEvent evt)
         {
             _activeAction = evt.Action;
+
+            if (!_activeAction.RequiresClickToActivate)
+            {
+                ActivateAction(new RaycastHit()); // если действие не требует клика, активируем его сразу
+            }
         }
 
         private void Update()
@@ -110,7 +115,7 @@ namespace Scripts
 
         private void HandleMouseUp()
         {
-            if (_activeAction == null && !Keyboard.current.shiftKey.isPressed)
+            if (!_wasMouseDownOnUI && _activeAction == null && !Keyboard.current.shiftKey.isPressed)
             {
                 DeselectAllUnits();
             }
@@ -231,20 +236,25 @@ namespace Scripts
                 && !EventSystem.current.IsPointerOverGameObject()
                 && Physics.Raycast(cameraRay, out hit, float.MaxValue, _floorLayers))
             {
-                List<AbstractUnit> abstractUnits = _selectedUnits
-                    .Where(unit => unit is AbstractUnit)
-                    .Cast<AbstractUnit>()
-                    .ToList();
-
-                for (int i = 0; i < abstractUnits.Count; i++)
-                {
-                    CommandContext context = new(abstractUnits[i], hit, i);
-                    _activeAction.Handle(context);
-                }
-
-                _activeAction = null;
+                ActivateAction(hit);
             }
 
+        }
+
+        private void ActivateAction(RaycastHit hit)
+        {
+            List<AbstractCommandable> abstractCommandables = _selectedUnits
+                                .Where(unit => unit is AbstractCommandable)
+                                .Cast<AbstractCommandable>()
+                                .ToList();
+
+            for (int i = 0; i < abstractCommandables.Count; i++)
+            {
+                CommandContext context = new(abstractCommandables[i], hit, i);
+                _activeAction.Handle(context);
+            }
+
+            _activeAction = null;
         }
 
         private void HandleRotation()

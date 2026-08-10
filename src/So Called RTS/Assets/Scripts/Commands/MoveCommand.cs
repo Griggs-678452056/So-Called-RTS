@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Scripts.Commands
 {
-    [CreateAssetMenu(fileName = "Move Action", menuName = "AI/Actions/Move", order = 100)]
+    [CreateAssetMenu(fileName = "Move Action", menuName = "AI/Commands/Move", order = 100)]
     public class MoveCommand : ActionBase
     {
         [SerializeField] private float _radiusMultiplier = 3.5f;

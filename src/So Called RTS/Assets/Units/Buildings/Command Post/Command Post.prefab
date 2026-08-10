@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6018277380246554126}
-  - component: {fileID: 8954186936418030536}
   - component: {fileID: 8127887157149199359}
+  - component: {fileID: 8954186936418030536}
   - component: {fileID: 8063701498260147663}
   m_Layer: 7
   m_Name: Command Post
@@ -36,6 +36,24 @@ Transform:
   - {fileID: 5902895496490668234}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8127887157149199359
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1589499662120937400}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e047ceb3094b6fe4caa6259b62bc7cfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Scripts.Units.BaseBuilding
+  <CurrentHealth>k__BackingField: 0
+  <MaxHealth>k__BackingField: 0
+  <AvailableCommands>k__BackingField:
+  - {fileID: 11400000, guid: 58cafee7641370b499e5ce1b934c98c9, type: 2}
+  _decalProjector: {fileID: 6315250332123996966}
+  UnitSO: {fileID: 11400000, guid: 7aa06a9daa364054e8f63851b21a0885, type: 2}
 --- !u!65 &8954186936418030536
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -57,22 +75,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 3, y: 3, z: 3}
   m_Center: {x: 0, y: 1.5, z: 0}
---- !u!114 &8127887157149199359
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1589499662120937400}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e047ceb3094b6fe4caa6259b62bc7cfb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Scripts.Units.BaseBuilding
-  <CurrentHealth>k__BackingField: 0
-  <MaxHealth>k__BackingField: 0
-  _decalProjector: {fileID: 6315250332123996966}
-  UnitSO: {fileID: 11400000, guid: 7aa06a9daa364054e8f63851b21a0885, type: 2}
 --- !u!208 &8063701498260147663
 NavMeshObstacle:
   m_ObjectHideFlags: 0
