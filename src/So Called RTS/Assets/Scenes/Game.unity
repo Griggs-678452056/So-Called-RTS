@@ -1949,7 +1949,8 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1265128418094899769, guid: 059f940466acbb14788d1893d17779c9, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -3239,7 +3240,8 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1265128418094899769, guid: 059f940466acbb14788d1893d17779c9, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -7485,6 +7487,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Scripts.UI.RuntimeUI
   _actionsUI: {fileID: 1741608388}
+  _buildingBuildingUI: {fileID: 1619984283}
 --- !u!1001 &646904507
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11639,7 +11642,8 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1265128418094899769, guid: 059f940466acbb14788d1893d17779c9, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -11649,17 +11653,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2883518643381618622, guid: 059f940466acbb14788d1893d17779c9, type: 3}
   m_PrefabInstance: {fileID: 908206392}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &908206394 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2295721283645488645, guid: 059f940466acbb14788d1893d17779c9, type: 3}
-  m_PrefabInstance: {fileID: 908206392}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d4009e1b1a17474db52435d195df452, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Scripts.UI.UIActionButton
 --- !u!1001 &916125077
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14847,6 +14840,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4583745518494351312, guid: 5920905e7a5364c47864b79706cb5eca, type: 3}
   m_PrefabInstance: {fileID: 1185997924}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1191808520 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3200559638637900468, guid: 059f940466acbb14788d1893d17779c9, type: 3}
+  m_PrefabInstance: {fileID: 908206392}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d4009e1b1a17474db52435d195df452, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Scripts.UI.Components.UIActionButton
 --- !u!1001 &1192894131
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15737,17 +15741,6 @@ Mesh:
       - serializedVersion: 1
         m_IndexStart: 0
         m_IndexCount: 0
---- !u!114 &1254658382 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2295721283645488645, guid: 059f940466acbb14788d1893d17779c9, type: 3}
-  m_PrefabInstance: {fileID: 229696645}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d4009e1b1a17474db52435d195df452, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Scripts.UI.UIActionButton
 --- !u!1001 &1259943530
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16650,6 +16643,17 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1303075085 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2301094326961652351, guid: 599856f3bd9a1614f9c0db64f2ddcacd, type: 3}
+  m_PrefabInstance: {fileID: 684018148024924124}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a223985ddd866c40bd62a654c725f30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Scripts.UI.Components.ProgressBar
 --- !u!1001 &1306628407
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17988,6 +17992,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4583745518494351312, guid: 5920905e7a5364c47864b79706cb5eca, type: 3}
   m_PrefabInstance: {fileID: 1359347155}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1363254484 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3200559638637900468, guid: 059f940466acbb14788d1893d17779c9, type: 3}
+  m_PrefabInstance: {fileID: 229696645}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d4009e1b1a17474db52435d195df452, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Scripts.UI.Components.UIActionButton
 --- !u!1001 &1365189615
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19146,9 +19161,9 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2883518643381618622, guid: 059f940466acbb14788d1893d17779c9, type: 3}
   m_PrefabInstance: {fileID: 6266538523910872510}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1409923350 stripped
+--- !u!114 &1409923354 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2295721283645488645, guid: 059f940466acbb14788d1893d17779c9, type: 3}
+  m_CorrespondingSourceObject: {fileID: 3200559638637900468, guid: 059f940466acbb14788d1893d17779c9, type: 3}
   m_PrefabInstance: {fileID: 6266538523910872510}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
@@ -19156,7 +19171,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7d4009e1b1a17474db52435d195df452, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Scripts.UI.UIActionButton
+  m_EditorClassIdentifier: Assembly-CSharp::Scripts.UI.Components.UIActionButton
 --- !u!1001 &1410496840
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21476,7 +21491,8 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1265128418094899769, guid: 059f940466acbb14788d1893d17779c9, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -21486,9 +21502,9 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2883518643381618622, guid: 059f940466acbb14788d1893d17779c9, type: 3}
   m_PrefabInstance: {fileID: 1596824628}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1596824630 stripped
+--- !u!114 &1596824634 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2295721283645488645, guid: 059f940466acbb14788d1893d17779c9, type: 3}
+  m_CorrespondingSourceObject: {fileID: 3200559638637900468, guid: 059f940466acbb14788d1893d17779c9, type: 3}
   m_PrefabInstance: {fileID: 1596824628}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
@@ -21496,7 +21512,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7d4009e1b1a17474db52435d195df452, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Scripts.UI.UIActionButton
+  m_EditorClassIdentifier: Assembly-CSharp::Scripts.UI.Components.UIActionButton
 --- !u!1001 &1597969726
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21708,6 +21724,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1619984282}
+  - component: {fileID: 1619984283}
   m_Layer: 5
   m_Name: Building In Progress Container
   m_TagString: Untagged
@@ -21742,6 +21759,25 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1619984283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1619984281}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db353ca19fb37f14fbe57bf025ce131e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Scripts.UI.Containers.BuildingBuildingUI
+  _unitButtons:
+  - {fileID: 1886773329}
+  - {fileID: 2068286345}
+  - {fileID: 1705503182}
+  - {fileID: 1952715781}
+  - {fileID: 1679823980}
+  _progressBar: {fileID: 1303075085}
 --- !u!1 &1621070753
 GameObject:
   m_ObjectHideFlags: 0
@@ -22710,7 +22746,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: 5
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5506051595733996965, guid: bac5100da311f084383ae850733b7894, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -22720,6 +22757,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4448886896212727805, guid: bac5100da311f084383ae850733b7894, type: 3}
   m_PrefabInstance: {fileID: 1679823974}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1679823980 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6365436250380421587, guid: bac5100da311f084383ae850733b7894, type: 3}
+  m_PrefabInstance: {fileID: 1679823974}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd23a6b8750503a4885251988aff9b8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Scripts.UI.Components.UIBuildQueueButton
 --- !u!4 &1680340237 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4078631732461238711, guid: 883b9682b823cb84cac42e4ad43d41d2, type: 3}
@@ -22998,7 +23046,8 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1265128418094899769, guid: 059f940466acbb14788d1893d17779c9, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -23008,9 +23057,9 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2883518643381618622, guid: 059f940466acbb14788d1893d17779c9, type: 3}
   m_PrefabInstance: {fileID: 1692717539}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1692717541 stripped
+--- !u!114 &1692717545 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2295721283645488645, guid: 059f940466acbb14788d1893d17779c9, type: 3}
+  m_CorrespondingSourceObject: {fileID: 3200559638637900468, guid: 059f940466acbb14788d1893d17779c9, type: 3}
   m_PrefabInstance: {fileID: 1692717539}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
@@ -23018,7 +23067,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7d4009e1b1a17474db52435d195df452, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Scripts.UI.UIActionButton
+  m_EditorClassIdentifier: Assembly-CSharp::Scripts.UI.Components.UIActionButton
 --- !u!1001 &1697413528
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23340,7 +23389,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: 3
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5506051595733996965, guid: bac5100da311f084383ae850733b7894, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -23350,6 +23400,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4448886896212727805, guid: bac5100da311f084383ae850733b7894, type: 3}
   m_PrefabInstance: {fileID: 1705503176}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1705503182 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6365436250380421587, guid: bac5100da311f084383ae850733b7894, type: 3}
+  m_PrefabInstance: {fileID: 1705503176}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd23a6b8750503a4885251988aff9b8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Scripts.UI.Components.UIBuildQueueButton
 --- !u!1001 &1714560699
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23674,15 +23735,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Scripts.UI.ActionsUI
   _actionButtons:
-  - {fileID: 1409923350}
-  - {fileID: 2023841034}
-  - {fileID: 1596824630}
-  - {fileID: 1853527352}
-  - {fileID: 1692717541}
-  - {fileID: 908206394}
-  - {fileID: 1929989357}
-  - {fileID: 1254658382}
-  - {fileID: 1783044719}
+  - {fileID: 1409923354}
+  - {fileID: 2023841038}
+  - {fileID: 1596824634}
+  - {fileID: 1853527356}
+  - {fileID: 1692717545}
+  - {fileID: 1191808520}
+  - {fileID: 1929989361}
+  - {fileID: 1363254484}
+  - {fileID: 1783044723}
 --- !u!1001 &1745954283
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24304,7 +24365,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: 4
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5506051595733996965, guid: bac5100da311f084383ae850733b7894, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -24664,7 +24726,8 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1265128418094899769, guid: 059f940466acbb14788d1893d17779c9, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -24674,9 +24737,9 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2883518643381618622, guid: 059f940466acbb14788d1893d17779c9, type: 3}
   m_PrefabInstance: {fileID: 1783044717}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1783044719 stripped
+--- !u!114 &1783044723 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2295721283645488645, guid: 059f940466acbb14788d1893d17779c9, type: 3}
+  m_CorrespondingSourceObject: {fileID: 3200559638637900468, guid: 059f940466acbb14788d1893d17779c9, type: 3}
   m_PrefabInstance: {fileID: 1783044717}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
@@ -24684,7 +24747,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7d4009e1b1a17474db52435d195df452, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Scripts.UI.UIActionButton
+  m_EditorClassIdentifier: Assembly-CSharp::Scripts.UI.Components.UIActionButton
 --- !u!1001 &1792011494
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25710,7 +25773,8 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1265128418094899769, guid: 059f940466acbb14788d1893d17779c9, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -25720,9 +25784,9 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2883518643381618622, guid: 059f940466acbb14788d1893d17779c9, type: 3}
   m_PrefabInstance: {fileID: 1853527350}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1853527352 stripped
+--- !u!114 &1853527356 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2295721283645488645, guid: 059f940466acbb14788d1893d17779c9, type: 3}
+  m_CorrespondingSourceObject: {fileID: 3200559638637900468, guid: 059f940466acbb14788d1893d17779c9, type: 3}
   m_PrefabInstance: {fileID: 1853527350}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
@@ -25730,7 +25794,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7d4009e1b1a17474db52435d195df452, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Scripts.UI.UIActionButton
+  m_EditorClassIdentifier: Assembly-CSharp::Scripts.UI.Components.UIActionButton
 --- !u!1001 &1864576510
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26139,6 +26203,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4448886896212727805, guid: bac5100da311f084383ae850733b7894, type: 3}
   m_PrefabInstance: {fileID: 7469599826143240342}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1886773329 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6365436250380421587, guid: bac5100da311f084383ae850733b7894, type: 3}
+  m_PrefabInstance: {fileID: 7469599826143240342}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd23a6b8750503a4885251988aff9b8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Scripts.UI.Components.UIBuildQueueButton
 --- !u!1001 &1899563053
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26805,9 +26880,9 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 7238607690618788840, guid: 3ece5d289035d0b4580cc990a54e21cd, type: 3}
   m_PrefabInstance: {fileID: 1929320738}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1929989357 stripped
+--- !u!114 &1929989361 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2295721283645488645, guid: 059f940466acbb14788d1893d17779c9, type: 3}
+  m_CorrespondingSourceObject: {fileID: 3200559638637900468, guid: 059f940466acbb14788d1893d17779c9, type: 3}
   m_PrefabInstance: {fileID: 162990655}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
@@ -26815,7 +26890,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7d4009e1b1a17474db52435d195df452, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Scripts.UI.UIActionButton
+  m_EditorClassIdentifier: Assembly-CSharp::Scripts.UI.Components.UIActionButton
 --- !u!1 &1933012993
 GameObject:
   m_ObjectHideFlags: 0
@@ -27454,6 +27529,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5004720826620963258, guid: 9cd21bf41652fdf49ba05bc10fa4d90d, type: 3}
   m_PrefabInstance: {fileID: 1951015270}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1952715781 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6365436250380421587, guid: bac5100da311f084383ae850733b7894, type: 3}
+  m_PrefabInstance: {fileID: 1773997860}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd23a6b8750503a4885251988aff9b8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Scripts.UI.Components.UIBuildQueueButton
 --- !u!1001 &1958439347
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -28339,7 +28425,8 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1265128418094899769, guid: 059f940466acbb14788d1893d17779c9, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -28349,9 +28436,9 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2883518643381618622, guid: 059f940466acbb14788d1893d17779c9, type: 3}
   m_PrefabInstance: {fileID: 2023841032}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2023841034 stripped
+--- !u!114 &2023841038 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2295721283645488645, guid: 059f940466acbb14788d1893d17779c9, type: 3}
+  m_CorrespondingSourceObject: {fileID: 3200559638637900468, guid: 059f940466acbb14788d1893d17779c9, type: 3}
   m_PrefabInstance: {fileID: 2023841032}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
@@ -28359,7 +28446,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7d4009e1b1a17474db52435d195df452, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Scripts.UI.UIActionButton
+  m_EditorClassIdentifier: Assembly-CSharp::Scripts.UI.Components.UIActionButton
 --- !u!1 &2030724130
 GameObject:
   m_ObjectHideFlags: 0
@@ -28672,7 +28759,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: 2
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5506051595733996965, guid: bac5100da311f084383ae850733b7894, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -28682,6 +28770,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4448886896212727805, guid: bac5100da311f084383ae850733b7894, type: 3}
   m_PrefabInstance: {fileID: 2068286339}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2068286345 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6365436250380421587, guid: bac5100da311f084383ae850733b7894, type: 3}
+  m_PrefabInstance: {fileID: 2068286339}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd23a6b8750503a4885251988aff9b8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Scripts.UI.Components.UIBuildQueueButton
 --- !u!1001 &2072022227
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29376,6 +29475,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1619984282}
     m_Modifications:
+    - target: {fileID: 4652461724744768891, guid: 599856f3bd9a1614f9c0db64f2ddcacd, type: 3}
+      propertyPath: m_Type
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4960964140495102217, guid: 599856f3bd9a1614f9c0db64f2ddcacd, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -29666,7 +29769,8 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1265128418094899769, guid: 059f940466acbb14788d1893d17779c9, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -29828,7 +29932,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5506051595733996965, guid: bac5100da311f084383ae850733b7894, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

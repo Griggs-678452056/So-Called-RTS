@@ -15,6 +15,7 @@ namespace Scripts.UI.Components
         private void Awake()
         {
             _button = GetComponent<Button>();
+            Disable();
         }
 
         public void EnableFor(ActionBase action, UnityAction onClick)
