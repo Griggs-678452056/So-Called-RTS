@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1f51dda908f72d947abc84794c6907d0, type: 3}
-  m_Name: Command Post
+  m_Name: Infantry School
   m_EditorClassIdentifier: Assembly-CSharp::Scripts.Units.UnitSO
-  <Health>k__BackingField: 400
-  <Prefab>k__BackingField: {fileID: 1589499662120937400, guid: 43943267dde60fe4a88cf5bd885c00e3, type: 3}
+  <Health>k__BackingField: 100
+  <Prefab>k__BackingField: {fileID: 5175054564074698786, guid: c3932362a5b6dcf4ab5981f279eb5a71, type: 3}
   <BuildTime>k__BackingField: 5
-  <Icon>k__BackingField: {fileID: 21300000, guid: dfebbdf93f58d764ab9aa4d54edd629e, type: 3}
+  <Icon>k__BackingField: {fileID: 21300000, guid: 9913c672e9ced57439a2369b346459fe, type: 3}

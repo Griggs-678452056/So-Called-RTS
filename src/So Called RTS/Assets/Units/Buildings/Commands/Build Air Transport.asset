@@ -9,10 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f51dda908f72d947abc84794c6907d0, type: 3}
-  m_Name: Air Transport
-  m_EditorClassIdentifier: Assembly-CSharp::Scripts.Units.UnitSO
-  <Health>k__BackingField: 200
-  <Prefab>k__BackingField: {fileID: 1076983579694789324, guid: 4d0c2e8c3bd76b64097b86828a286bc6, type: 3}
-  <BuildTime>k__BackingField: 5
+  m_Script: {fileID: 11500000, guid: 42041ce872a485e43b546d62e27ec69b, type: 3}
+  m_Name: Build Air Transport
+  m_EditorClassIdentifier: Assembly-CSharp::Scripts.Commands.BuildUnitCommand
   <Icon>k__BackingField: {fileID: 21300000, guid: 4d0944a6c62020d4f955f5b7174bb96f, type: 3}
+  <Slot>k__BackingField: 0
+  <RequiresClickToActivate>k__BackingField: 0
+  <Unit>k__BackingField: {fileID: 11400000, guid: 8abf6699e2aa0c148a1fd5f63ab86451, type: 2}
