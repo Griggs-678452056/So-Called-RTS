@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1715156035423810196}
+  - component: {fileID: -7379218446904158415}
   - component: {fileID: 156581915902003394}
   - component: {fileID: 8911467109956844478}
   m_Layer: 0
@@ -35,6 +36,21 @@ Transform:
   - {fileID: 2689223800047207914}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 224.46, z: 0}
+--- !u!114 &-7379218446904158415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2281804471223176727}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2eb5c1bd3a667974aaa69e6da860aeb0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Scripts.Environment.GatherableSupply
+  <Supply>k__BackingField: {fileID: 11400000, guid: 0d5b39fad7107e543a4044ca8accdecc, type: 2}
+  <Amount>k__BackingField: 0
+  <IsBusy>k__BackingField: 0
 --- !u!65 &156581915902003394
 BoxCollider:
   m_ObjectHideFlags: 0

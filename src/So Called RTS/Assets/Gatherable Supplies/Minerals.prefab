@@ -9,8 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4583745518494351312}
+  - component: {fileID: 2236873820587495754}
   - component: {fileID: 8177309903621710089}
-  - component: {fileID: 5893555526729021067}
+  - component: {fileID: 97003934302146486}
   m_Layer: 0
   m_Name: Minerals
   m_TagString: Untagged
@@ -34,6 +35,21 @@ Transform:
   - {fileID: 5594130292788948093}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!114 &2236873820587495754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2470480825251639189}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2eb5c1bd3a667974aaa69e6da860aeb0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Scripts.Environment.GatherableSupply
+  <Supply>k__BackingField: {fileID: 11400000, guid: 022965e4743c9e443bda17feca289597, type: 2}
+  <Amount>k__BackingField: 0
+  <IsBusy>k__BackingField: 0
 --- !u!65 &8177309903621710089
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -55,7 +71,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!208 &5893555526729021067
+--- !u!208 &97003934302146486
 NavMeshObstacle:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
