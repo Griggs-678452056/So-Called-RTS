@@ -8,7 +8,7 @@ using UnityEngine.AI;
 namespace Scripts.Behavior
 {
     [Serializable, GeneratePropertyBag]
-    [NodeDescription(name: "Move to Target Location", story: "[Agent] moves to [TargetLocation]", category: "Action/Navigation", id: "c5a64fefda457ab8d98a533054017e0a")]
+    [NodeDescription(name: "Move to Target Location", story: "[Agent] moves to [TargetLocation]", category: "Action/Navigation", id: "32f9f0968e520a0a47c3f9921ed1b277")]
     public partial class MoveToTargetLocationAction : Action
     {
         [SerializeReference] public BlackboardVariable<GameObject> Agent;
