@@ -17,19 +17,24 @@ namespace Scripts.Units
         {
             _agent = GetComponent<NavMeshAgent>();
             _graphAgent = GetComponent<BehaviorGraphAgent>();
-            MoveTo(transform.position);
+            _graphAgent.SetVariableValue("Command", UnitCommands.Stop);
         }
 
         protected override void Start()
         {
             base.Start();
             Bus<UnitSpawnEvent>.Raise(new UnitSpawnEvent(this));
-            MoveTo(transform.position);
         }
 
         public void MoveTo(Vector3 position)
         {
             _graphAgent.SetVariableValue("TargetLocation", position);
+            _graphAgent.SetVariableValue("Command", UnitCommands.Move);
+        }
+
+        public void Stop()
+        {
+            _graphAgent.SetVariableValue("Command", UnitCommands.Stop);
         }
     }
 }
