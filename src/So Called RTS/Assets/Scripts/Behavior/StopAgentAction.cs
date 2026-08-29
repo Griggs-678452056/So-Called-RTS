@@ -17,9 +17,12 @@ namespace Scripts.Behavior
         {
             if (Agent.Value.TryGetComponent(out NavMeshAgent agent))
             {
+                Debug.Log($"Agent {agent} found.  Stopping Agent");
                 agent.ResetPath(); // останавливаем движение агента, сбрасывая его путь
+
                 return Status.Success;
             }
+            Debug.Log($"No Agent was found to Stop");
 
             return Status.Failure;
         }
